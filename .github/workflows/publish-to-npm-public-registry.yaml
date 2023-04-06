@@ -1,17 +1,27 @@
-name: Publish package to npmjs
+name: Publish stable package to npmjs
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
 jobs:
-  build:
+  release:
+    name: 'Release on NPM'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        name: Checkout
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-node@v3
+        name: Setup NodeJs
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm publish
+        name: Install dependencies
+      - run: npx semantic-release
+        name: Publish the package on npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
