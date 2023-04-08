@@ -1,6 +1,6 @@
 {
   "name": "@unep/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react component library for unep applications",
   "publishConfig": {
     "access": "public"
