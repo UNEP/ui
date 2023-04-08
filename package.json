@@ -12,5 +12,8 @@
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
     "semantic-release": "^21.0.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   }
 }
