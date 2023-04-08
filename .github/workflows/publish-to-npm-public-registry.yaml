@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - bnandwa/4-resolve-issues-with-build
 jobs:
   release:
     name: 'Release on NPM'
@@ -20,6 +21,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
         name: Install dependencies
+      - run: echo ${{ secrets.NPM_TOKEN }}
       - run: npx semantic-release
         name: Publish the package on npm
         env:
