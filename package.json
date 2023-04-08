@@ -2,6 +2,9 @@
   "name": "@unep/ui",
   "version": "1.0.0",
   "description": "react component library for unep applications",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
